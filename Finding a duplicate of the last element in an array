@@ -1,0 +1,7 @@
+function searchDuplicate(arr){
+  let lastEl = arr[arr.length-1];
+  if (arr.lastIndexOf(lastEl) === arr.indexOf(lastEl)) 
+    return 'Last element is not duplicate';
+  if (arr.lastIndexOf(lastEl) !== arr.indexOf(lastEl)) 
+    return 'Last element is duplicate';
+}
