@@ -1,0 +1,16 @@
+// arr.length === 5; find all the element in the array that contains spaces and change then to str;
+function changeElement(arr, str){
+  if (arr[0].includes(' ')) { 
+    arr.splice(0, 1, str)} ;          //splice(start index, delete the element with spaces, add str)
+  if (arr[1].includes(' ')) { 
+    arr.splice(1, 1, str)};
+  if (arr[2].includes(' ')) { 
+    arr.splice(2, 1, str)};
+  if (arr[4].includes(' ')) { 
+    arr.splice(4, 1, str)};
+  if (arr[3].includes(' ')) { 
+    arr.splice(3, 1, str)};
+  return arr;
+}
+
+// changeElement(['Hello world', 'hello', 'newWord', 'first step', 'hot summer'], 'changedElement') should return ["changedElement", "hello", "newWord", "changedElement", "changedElement"]
