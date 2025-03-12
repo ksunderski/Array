@@ -1,0 +1,15 @@
+function addOrDelete(arr, str, num){
+  let groomedStr = str.trim().toLowerCase();
+  if(!str) return arr;                      //if str is empty, return arr unchanged
+  if(arr.includes(groomedStr)){
+    let index = arr.indexOf(groomedStr)    //if array has the str, delete it
+    arr.splice(index, 1);
+  } else {
+      arr.splice(num, 0, groomedStr)      //if array hasn't the str, add it to num position
+  }
+  return arr;
+}
+
+//addOrDelete(['a'], '', 0) should return ['a'] 
+//addOrDelete(['a', 'b', 'c', 'd'], ' a', 2) should return ['b', 'c', 'd']
+//addOrDelete(['a', 'b', 'c', 'd'], 'f', 0) should return ['f', 'a', 'b', 'c', 'd']
