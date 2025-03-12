@@ -1,0 +1,15 @@
+ffunction getMiddleElement(object, property){ 
+  if(!object.hasOwnProperty(property)) {                                    // if obj does NOT have the property, return 'No such property: ' + property
+     return 'No such property: ' + property;
+    
+  } else {
+      if(object[property].length % 2 === 0){                                
+      return object[property][Math.trunc(object[property].length/2 - 1)]     //if property length is even, return the left property from the middle  
+    } else {
+        return object[property][Math.trunc(object[property].length/2)]       //if property length is odd, return the the middle located property
+    }
+  }
+}
+
+// getMiddleElement({ numbers1: [1, 2, 3, 4, 5, 6, 7, 8], numbers2: [1, 2, 3, 4, 5, 6, 7, 8, 9] }, "numbers1"); // 4
+// getMiddleElement({ games: ["football", "basketball", "hockey", "tennis", "volleyball", "baseball"] }, "cars"); // "No such property: cars"
