@@ -1,0 +1,17 @@
+function findAndDouble(arr1, arr2, arr3, number){            //this function modifies 3 arrays, add them to a new array and returns updates new array
+  let newArr1 = double(arr1, number);
+  let newArr2 = double(arr2, number);
+  let newArr3 = double(arr3, number);
+  let newArr = [];
+  newArr.push(newArr1, newArr2, newArr3);
+  return newArr;
+}
+
+function double(arr, number){                                   // this function modifies array and double the number if it's in the array, and add doubled to the end if not
+  if(arr.includes(number)) {
+    arr[arr.indexOf(number)] = arr[arr.indexOf(number)] * 2;
+  } else if(!arr.includes(number)){
+      arr.push(number * 2);
+  }
+  return arr;
+}
