@@ -1,0 +1,13 @@
+function lettersAndSymbols(str){
+  let letters = '', symbols = '';
+  for(let x of str){
+    if(x.toLowerCase() !== x || x.toUpperCase() !== x){  //identidy if symbol upper or lower case letter
+      letters += x;
+    } else {
+        symbols += x;
+      }
+  }
+  return [letters, symbols];
+}
+
+//lettersAndSymbols('Hello World!') returns ['HelloWorld', ' !']
