@@ -1,5 +1,5 @@
 const str = 'He34llo 56 JS07 6 '; ===> [34, 56, 7, 6]
-
+// Extract all numbers from a string and store them in an array
 function numbersToArray(str) {
   const digits = '0123456789';
   let numbers = [];
