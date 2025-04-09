@@ -1,0 +1,12 @@
+function sumOfNumbers(arr){
+  if(arr.length === 0) return 'Array is empty';
+  let sum = 0;
+  for(let x of arr){
+    if(!isNaN(x) && typeof(x) !== 'boolean') sum += +x
+    
+  }
+  return sum;
+}
+
+//sumOfNumbers(['abc', true, {a: 1}, [], null, NaN, undefined]) should return 0
+//sumOfNumbers(['1',2,'3',4,'5',10, true, false, (5 > 4), 'b', 'c']) should return 25
