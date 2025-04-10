@@ -1,0 +1,12 @@
+function minAndMaxOfNegatives(arr){
+  let min = undefined;
+  let max = undefined;
+  for(let i = 0; i< arr.length; i++){
+    if(arr[i] >= 0) continue ;
+    if (min === undefined || arr[i] < min) min = arr[i];
+    if (max === undefined || arr[i] > max) max = arr[i];
+  }
+  
+  return [min, max]
+}
+console.log(minAndMaxOfNegatives([5, -25, 14, 69, 100, -5]));
