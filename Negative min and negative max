@@ -3,8 +3,8 @@ function minAndMaxOfNegatives(arr){
   let max = undefined;
   for(let i = 0; i< arr.length; i++){
     if(arr[i] >= 0) continue ;
-    if (min === undefined || arr[i] < min) min = arr[i];
-    if (max === undefined || arr[i] > max) max = arr[i];
+    if (!min || arr[i] < min) min = arr[i];                  // !min to find the first negative number
+    if (!max || arr[i] > max) max = arr[i];
   }
   
   return [min, max]
