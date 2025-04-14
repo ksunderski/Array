@@ -1,0 +1,24 @@
+function secondMaxNumber(arr){
+  if(arr.length === 0) return 'Array is empty';
+  
+  let max = arr[0];
+  let secondMax = arr[0];
+  
+  for(let i = 1; i < arr.length; i++){                         // assign the max if arr[i] > max, and the secondMax becomes max
+    if(arr[i] > max){
+      secondMax = max;
+      max = arr[i]
+    } else if(arr[i] > secondMax && arr[i] < max){            // find the secondMax later in arr 
+        secondMax = arr[i]
+    } else if(secondMax === max){                             // catches the edge cases when max === Infinity
+        secondMax = arr[i]
+    }
+  }
+  if(secondMax === max) return 'There is no second max number';
+  else return secondMax; 
+}
+
+//secondMaxNumber([Infinity, -50, 43, 2, -Infinity, 45, 12, 8, Infinity]) should return 45
+//secondMaxNumber([5, 5, 5]) should return "There is no second max number"
+//secondMaxNumber([]) should return "Array is empty"
+//secondMaxNumber([5, 3, 4, 1, -5, -2, -10]) should return 4
