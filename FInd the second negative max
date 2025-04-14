@@ -1,0 +1,25 @@
+function secondMaxNegative(arr){
+  if(arr.length === 0) return "Array is empty";
+  
+  let max, secondMax;
+  
+  for(let i = 0; i < arr.length ; i++){
+    if(arr[i] < 0){                                                          // check only negative numbers
+      if (max === undefined){                                                // If you haven't set max yet, set it to the first negative number      
+        max = arr[i]
+      } else if(arr[i] > max) {                                              // If current number is greater than current max, then:
+          secondMax = max;                                                   // It's the new biggest negative (closer to 0) 
+          max = arr[i];                                                      // So shift current max into secondMax, and update max
+      } else if(secondMax === undefined && arr[i] !== max){                  //You haven’t found a second max yet, and this number isn’t a duplicate of max 
+          secondMax = arr[i]                                                 // ✅ So set it as the secondMax for now.
+      } else if(secondMax < arr[i] && max !== arr[i] ) secondMax = arr[i]    // If this number is greater than current secondMax, but not equal to max, update it. 
+  }                                                                          // This keeps your secondMax just behind max.
+    } 
+  if(max === undefined) return "There is no negative numbers";
+  if(secondMax === undefined) return 'There is no second max negative number';
+  else return secondMax;
+}
+
+//secondMaxNegative([-2, 100, 25, 10, -5, -14, 0]) should return -5
+//secondMaxNegative([-2, -2, -2]) should return "There is no second max negative number"
+//secondMaxNegative([1, 5, 6, -5, 6, 10]) should return "There is no second max negative number"
