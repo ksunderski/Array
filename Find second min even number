@@ -1,0 +1,39 @@
+function secondMinEvenNumber(arr) {
+  // If the array is empty, return false
+  if (arr.length === 0) return false;
+
+  // Variables to store the smallest and second smallest even numbers
+  let min, secondMin;
+
+  // 🔁 First pass: Find the smallest even number
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) { // Only consider even numbers
+      if (min === undefined || arr[i] < min) {
+        min = arr[i]; // Set or update the minimum even number
+      }
+    }
+  }
+
+  // 🔁 Second pass: Find the second smallest even number (not equal to min)
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) { // Again, only check even numbers
+      // If this is the first candidate or better than current secondMin (but not equal to min)
+      if (secondMin === undefined || (arr[i] < secondMin && arr[i] !== min)) {
+        secondMin = arr[i];
+      } 
+      // In case secondMin accidentally equals min (usually happens at init), update it
+      else if (min === secondMin) {
+        secondMin = arr[i];
+      }
+    }
+  }
+
+  // 🛑 If no valid second smallest even number was found, return false
+  if (secondMin === undefined || secondMin === min) return false;
+
+  // ✅ Otherwise, return the second smallest even number
+  return secondMin;
+}
+
+//secondMinEvenNumber([10, 8, 6, -2, -4, -8]) should return -4
+//secondMinEvenNumber([1, 2, 3, 4, 5]) should return 4
