@@ -1,0 +1,18 @@
+function findArrayWithNumbers(arr) {
+
+  // 🔍 Step 1: Find the index of the first sub-array that starts with a number
+  const position = arr.findIndex(el => typeof el[0] === 'number'); 
+  // 'el' is each sub-array; el[0] checks the first element of that sub-array
+
+  // 🎯 Step 2: Map through the found array and multiply each number by 3
+  const result = arr[position].map(el => el * 3); 
+
+  // 📝 Step 3: Create a message with the index where the numeric array was found
+  const message = `Array with numbers by index ${position}`;
+
+  // 📦 Step 4: Return both the message and the transformed array as a pair
+  return [message, result];
+}
+
+//findArrayWithNumbers([[25, 35, 45], ['a', 'b', 'c']]) should return ['Array with numbers by index 0', [75, 105, 135]]
+//findArrayWithNumbers([['1','2','3'], ['test'], [0, 100, 900], []]) should return ['Array with numbers by index 2', [0, 300, 2700]]
