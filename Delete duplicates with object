@@ -1,0 +1,12 @@
+function noDuplicates(arr){
+  const obj = {};
+  for(let i = 0; i < arr.length; i++){
+    if(obj[arr[i]]){
+      arr.splice(i, 1)
+      i--
+    } else obj[arr[i]] = 1;
+  }
+  return arr;
+}
+
+noDuplicates(["a1", "a1", 1, 1, "1", "1"]) should return ["a1", 1]
