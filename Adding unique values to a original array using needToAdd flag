@@ -1,0 +1,15 @@
+function addToPlaylist(playlist, newTracks){
+  for(let track of newTracks){
+    let needToAdd = true;
+    for(let original of playlist){
+      if(original.toLowerCase() === track.toLowerCase()){
+        needToAdd = false;
+        break;
+      }
+    }
+    if(needToAdd){
+      playlist.push(track);
+    }
+  }
+  return playlist;
+}
